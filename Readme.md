@@ -242,12 +242,3 @@ CLI-Dora/
 
 ---
 
-## 👨‍💻 Author
-
-**Lomesh Keshriya**
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
