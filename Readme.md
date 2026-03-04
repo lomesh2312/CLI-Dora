@@ -1,13 +1,20 @@
 # 🚀 CLI-Dora
 
-CLI-Dora is a fully functional Command Line Interface (CLI) tool built using **Node.js + TypeScript**.
+CLI-Dora is a fully functional Command Line Interface (CLI) tool built using **Node.js and TypeScript**.  
+It follows an **OOP-based architecture** and is designed to run as a global CLI tool.
 
-It provides:
+---
 
-- 🧮 Mathematical operations  
-- 👋 Greeting functionality  
-- 🌐 Integration with 3 public APIs (Jokes, Quotes, Facts)  
-- 🌍 Global CLI support using `npm link`  
+## ✨ Features
+
+- 🧮 Mathematical operations (add, subtract, multiply, divide, power, square, cube)
+- 👋 Greeting command
+- 🌐 Integration with 3 public APIs:
+  - Random Jokes  
+  - Random Quotes  
+  - Random Facts  
+- 🌍 Global CLI support using `npm link`
+- 🧩 Modular OOP architecture (Command Pattern)
 
 ---
 
@@ -17,6 +24,20 @@ It provides:
 - TypeScript  
 - Commander.js  
 - Axios  
+- Chalk  
+
+---
+
+## ⚙ Requirements
+
+- Node.js v18+  
+- npm  
+
+Check version:
+
+```bash
+node -v
+```
 
 ---
 
@@ -41,13 +62,21 @@ npm install
 npx tsc
 ```
 
-This generates the compiled JavaScript inside the `dist/` folder.
+This generates compiled JavaScript files inside the `dist/` folder.
 
 ---
 
-## 🌍 Run as Global CLI (Using npm link)
+## 🌍 Run as Global CLI
 
-To use CLI-Dora as a global command:
+Make sure your `package.json` contains:
+
+```json
+"bin": {
+  "dora": "./dist/dora.js"
+}
+```
+
+Then run:
 
 ```bash
 npm link
@@ -59,33 +88,24 @@ Now you can use:
 dora <command>
 ```
 
-### Example:
+---
+
+## 📚 Available Commands
+
+### 👋 greet `<name>`
 
 ```bash
 dora greet Manik
 ```
 
----
-
-## 📚 Available Commands
-
-Below are all available commands in CLI-Dora.
-
----
-
-### 👋 greet `<name>`
-
-Greets the user by name.
-
-```bash
-dora greet Manik
+Output:
+```
+Hello Manik
 ```
 
 ---
 
 ### ➕ add `<num1>` `<num2>`
-
-Adds two numbers.
 
 ```bash
 dora add 5 3
@@ -95,8 +115,6 @@ dora add 5 3
 
 ### ➖ subtract `<num1>` `<num2>`
 
-Subtracts second number from first.
-
 ```bash
 dora subtract 10 4
 ```
@@ -104,8 +122,6 @@ dora subtract 10 4
 ---
 
 ### ✖ multiply `<num1>` `<num2>`
-
-Multiplies two numbers.
 
 ```bash
 dora multiply 6 7
@@ -115,17 +131,15 @@ dora multiply 6 7
 
 ### ➗ divide `<num1>` `<num2>`
 
-Divides first number by second.
-
 ```bash
 dora divide 10 2
 ```
 
+Handles division by zero safely.
+
 ---
 
 ### 🔢 power `<base>` `<exponent>`
-
-Raises base to the power of exponent.
 
 ```bash
 dora power 2 5
@@ -135,8 +149,6 @@ dora power 2 5
 
 ### 🟦 square `<number>`
 
-Returns square of a number.
-
 ```bash
 dora square 4
 ```
@@ -144,8 +156,6 @@ dora square 4
 ---
 
 ### 🟪 cube `<number>`
-
-Returns cube of a number.
 
 ```bash
 dora cube 3
@@ -155,7 +165,7 @@ dora cube 3
 
 ### 😂 joke
 
-Fetches a random joke from the Official Joke API.
+Fetches a random joke from Official Joke API.
 
 ```bash
 dora joke
@@ -165,7 +175,7 @@ dora joke
 
 ### 💬 quote
 
-Fetches a random quote from the ZenQuotes API.
+Fetches a random quote from ZenQuotes API.
 
 ```bash
 dora quote
@@ -175,7 +185,7 @@ dora quote
 
 ### 📚 fact
 
-Fetches a random fact from the Useless Facts API.
+Fetches a random fact from Useless Facts API.
 
 ```bash
 dora fact
@@ -188,7 +198,7 @@ dora fact
 CLI-Dora integrates the following public APIs:
 
 - Official Joke API  
-- ZenQuotes  
+- ZenQuotes API  
 - Useless Facts API  
 
 ---
@@ -199,11 +209,23 @@ CLI-Dora integrates the following public APIs:
 CLI-Dora/
 │
 ├── src/
-│   └── dora.ts
+│   ├── dora.ts
+│   ├── cliEngine/
+│   │   └── cli_engine.ts
+│   └── commands/
+│       ├── addCommand.ts
+│       ├── subtractCommand.ts
+│       ├── multiplyCommand.ts
+│       ├── divideCommand.ts
+│       ├── powerCommand.ts
+│       ├── squareCommand.ts
+│       ├── cubeCommand.ts
+│       ├── greetCommand.ts
+│       ├── jokeCommand.ts
+│       ├── quoteCommand.ts
+│       └── factCommand.ts
 │
 ├── dist/
-│   └── dora.js
-│
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -211,4 +233,21 @@ CLI-Dora/
 
 ---
 
-💡 Built with TypeScript and designed for global CLI usage.
+## 🧠 Architecture
+
+- Object-Oriented Design  
+- Command Pattern implementation  
+- Modular structure (Each command in separate file)  
+- Easily scalable for adding new commands  
+
+---
+
+## 👨‍💻 Author
+
+**Lomesh Keshriya**
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
